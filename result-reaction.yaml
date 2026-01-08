@@ -1,0 +1,13 @@
+kind: Reaction
+apiVersion: v1
+name: result-explore-query
+spec:
+  kind: Result
+  queries: >
+    {
+      "explore-query": {
+        "properties": {
+          "QueryContainerId": "default"
+        }
+      }
+    }

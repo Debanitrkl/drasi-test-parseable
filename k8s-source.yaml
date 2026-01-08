@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Source
+name: k8s
+spec:
+  kind: Kubernetes
+  properties:
+    kubeConfig:
+      kind: Secret
+      name: k8s-context
+      key: context

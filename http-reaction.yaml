@@ -1,0 +1,22 @@
+kind: Reaction
+apiVersion: v1
+name: http-reaction
+spec:
+  kind: Http
+  properties:
+    baseUrl: "http://anton:8010"
+  queries:
+    error-logs-query: >
+      {
+        "added": {
+          "url": "/",
+          "method": "POST",
+          "body": "{{after.log}}",
+          "headers": {
+            "Authorization": "Basic YWRtaW46YWRtaW4=",
+            "X-P-Stream": "otel-logs-k8s",
+            "X-P-Log-Source": "otel-logs",
+            "Content-Type": "application/json"
+          }
+        }
+      }

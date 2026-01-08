@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ContinuousQuery
+name: error-logs-query
+spec:
+  mode: filter
+  sources:
+    subscriptions:
+      - id: k8s
+        nodes:
+          - sourceLabel: Log
+  query: >
+    MATCH (log:Log)
+    WHERE log.level = 'error'
+    RETURN log

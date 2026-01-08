@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ContinuousQuery
+name: explore-query
+spec:
+  mode: query
+  sources:
+    subscriptions:
+      - id: k8s
+        nodes:
+          - sourceLabel: Pod
+          - sourceLabel: Deployment
+          - sourceLabel: Service
+          - sourceLabel: ReplicaSet
+          - sourceLabel: StatefulSet
+          - sourceLabel: DaemonSet
+          - sourceLabel: Job
+          - sourceLabel: ServiceAccount
+          - sourceLabel: Node
+          - sourceLabel: Ingress
+          - sourceLabel: PersistentVolume
+          - sourceLabel: PersistentVolumeClaim
+  query: >
+    MATCH (n)
+    RETURN n
